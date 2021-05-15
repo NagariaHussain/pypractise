@@ -8,7 +8,7 @@
     <title>Alpine + Tailwind = lit</title>
   </head>
   <body class="bg-blue-400">
-    <div x-data="{bookmarked: false}" class="m-24 bg-white overflow-hidden shadow sm:rounded-lg">
+    <div x-init="fetchQuestion().then((q) => prompt_text = q)" x-data="{bookmarked: false, prompt_text: ''}" class="m-24 bg-white overflow-hidden shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h2 class="text-lg uppercase font-normal mb-2 text-gray-400 space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" @click="bookmarked = !bookmarked"  :class="{ 'text-blue-600': bookmarked, 'h-7 w-7 inline-block cursor-pointer hover:text-blue-600 transition-colors': true }" viewBox="0 0 20 20" fill="currentColor">
@@ -17,7 +17,7 @@
             <span>Question</span>
           </h2>
           
-          <p class="text-gray-900">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores deserunt, quis expedita nesciunt esse neque facere possimus fugit architecto a sunt quia ipsam eligendi necessitatibus eaque, ut, in consectetur rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, enim iusto distinctio ipsum ea doloremque? Dolores accusamus iusto ut magni?</p>
+          <p class="text-gray-900" x-html="prompt_text"></p>
         </div>
     </div>
     <script type="module" src="./src/main.js"></script>
