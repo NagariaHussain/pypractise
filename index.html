@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Alpine + Tailwind = lit</title>
   </head>
-  <body class="bg-blue-400">
+  <body class="bg-blue-300">
     <div x-init="fetchQuestion().then((q) => prompt_text = q)" x-data="{bookmarked: false, prompt_text: ''}" class="m-3 bg-white overflow-hidden shadow rounded-md sm:rounded-lg sm:m-12">
         <div class="px-4 py-5 sm:p-6">
           <h2 class="text-lg uppercase font-normal mb-2 text-gray-400 space-x-2">
@@ -21,7 +21,23 @@
         </div>
     </div>
 
+
+
     <div class="m-3 bg-white overflow-hidden shadow rounded-md sm:rounded-lg sm:m-12 max-w-2xl">
+      <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+        <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
+          <div class="ml-4 mt-2">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+              Code Editor
+            </h3>
+          </div>
+          <div class="ml-4 mt-2 flex-shrink-0">
+            <button id="submit-button" type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="px-4 py-5 h-56 sm:p-6 text-lg" id="code-editor">
 
       </div>

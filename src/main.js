@@ -19,3 +19,9 @@ window.fetchQuestion = () => {
         return md.render(d.prompt_text);
     });
 }
+
+// Handle submission
+const submitButton = document.getElementById("submit-button");
+submitButton.addEventListener('click', (e) => {
+    console.log(e);
+});
