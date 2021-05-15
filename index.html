@@ -7,10 +7,19 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Alpine + Tailwind = lit</title>
   </head>
-  <body class="bg-red-200">
-    <div x-data="{message: 'Hello, Alpine + Tailwind!'}">
-      <h1 class="text-gray-800 text-6xl text-center mt-12 font-mono" x-text="message"></h1>
+  <body class="bg-blue-400">
+    <div x-data="{message: ''}" class="m-24 bg-white overflow-hidden shadow sm:rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+          <h2 class="text-lg uppercase font-normal mb-2 text-gray-400 space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block cursor-pointer hover:text-blue-600 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+            </svg>
+            <span>Question</span>
+          </h2>
+          
+          <p class="text-gray-900">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores deserunt, quis expedita nesciunt esse neque facere possimus fugit architecto a sunt quia ipsam eligendi necessitatibus eaque, ut, in consectetur rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, enim iusto distinctio ipsum ea doloremque? Dolores accusamus iusto ut magni?</p>
+        </div>
     </div>
-    <script type="module" src="src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
