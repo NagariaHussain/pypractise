@@ -1,4 +1,5 @@
 {
     "id": 1,
-    "prompt_text": "# Hello World\n\n* 1\n* 2\n\nThis should be *italic* and this should be **bold**"
+    "prompt_text": "# Hello World\n\n* 1\n* 2\n\nThis should be *italic* and this should be **bold**",
+    "starter_code": "import math\n\ndef sayHello():\n\tpass"
 }
