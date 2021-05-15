@@ -13,6 +13,7 @@
     "vite": "^2.3.0"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.0",
     "alpinejs": "^2.8.2",
     "markdown-it": "^12.0.6"
   }
