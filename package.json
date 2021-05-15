@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mkdir -p dist/questions && cp questions/* dist/questions/",
+    "build": "vite build && mkdir -p dist/questions && cp questions/* dist/questions/ && mkdir -p dist/vendor && cp vendor/* dist/vendor/",
     "serve": "vite preview"
   },
   "devDependencies": {
