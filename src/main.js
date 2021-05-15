@@ -20,8 +20,32 @@ window.fetchQuestion = () => {
     });
 }
 
-// Handle submission
-const submitButton = document.getElementById("submit-button");
-submitButton.addEventListener('click', (e) => {
-    console.log(e);
-});
+async function main(){
+    console.log("Loading pyodide...");
+    await loadPyodide({
+        indexURL : "https://cdn.jsdelivr.net/pyodide/v0.17.0/full/"
+    });
+}
+
+
+const output = document.getElementById("output");
+
+let pyodideReadyPromise = main();
+
+window.evaluatePython = async function() {
+    let code = editor.getValue();
+    let out;
+
+    await pyodideReadyPromise;
+    try {
+        // To capture stdout
+        await pyodide.runPythonAsync(`import sys\nimport io\nsys.stdout = io.StringIO()`)
+        // Run the desired code
+        await pyodide.runPythonAsync(code);
+        // Get the output and print
+        output.innerText = pyodide.runPython('sys.stdout.getvalue()');
+    } catch(err) {
+        return err;
+    }
+    return out;
+}

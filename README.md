@@ -1,26 +1,36 @@
-# Vite + Tailwind + AlpineJS
+# A Python Programming Questions Website
 
-A deadly combination for side projects.
+NO servers.
+NO databases.
 
-Installing:
+Just a Static Site!
 
-```bash
-$ cd tailala
-$ npm install
+Uses `pyodide` to evaluate python code in the browser.
+
+## Some notes on `pyodide`
+
+1. Capturing `stdout`:
+
+```py
+pyodide.runPython(`
+    import sys
+    import io
+
+    sys.stdout = io.StringIO();
+`);
 ```
 
-Running the dev server:
+Now, run any code that sends something to `stdout`:
 
-```bash
-$ npm run dev
+```py
+pyodide.runPython(
+    print("Hello, World!")
+);
 ```
 
-Production build:
+Getting the output:
 
-```bash
-$ npm run build
+```js
+let output = pyodide.runPython(`sys.stdout.getvalue()`);
+console.log(output); // "Hello, World!\n"
 ```
-
-Also, includes the `inter` font family!
-
-Made with ♥ by Hussain Nagaria.

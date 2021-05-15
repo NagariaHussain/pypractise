@@ -8,7 +8,7 @@
     <title>Alpine + Tailwind = lit</title>
   </head>
   <body class="bg-blue-300">
-    <div x-init="fetchQuestion().then((q) => prompt_text = q)" x-data="{bookmarked: false, prompt_text: ''}" class="m-3 bg-white overflow-hidden shadow rounded-md sm:rounded-lg sm:m-12">
+    <div x-init="fetchQuestion().then((q) => prompt_text = q)" x-data="{bookmarked: false, prompt_text: '', pyodide_loading: false}" class="m-3 bg-white overflow-hidden shadow rounded-md sm:rounded-lg sm:m-12">
         <div class="px-4 py-5 sm:p-6">
           <h2 class="text-lg uppercase font-normal mb-2 text-gray-400 space-x-2">
             <svg xmlns="http://www.w3.org/2000/svg" @click="bookmarked = !bookmarked"  :class="{ 'text-blue-600': bookmarked, 'h-7 w-7 inline-block cursor-pointer hover:text-blue-600 transition-colors': true }" viewBox="0 0 20 20" fill="currentColor">
@@ -21,9 +21,7 @@
         </div>
     </div>
 
-
-
-    <div class="m-3 bg-white overflow-hidden shadow rounded-md sm:rounded-lg sm:m-12 max-w-2xl">
+    <div x-data="{'loading': false}" class="m-3 bg-white overflow-hidden shadow rounded-md sm:rounded-lg sm:m-12 max-w-2xl">
       <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
         <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap">
           <div class="ml-4 mt-2">
@@ -32,8 +30,13 @@
             </h3>
           </div>
           <div class="ml-4 mt-2 flex-shrink-0">
-            <button id="submit-button" type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button @click="evaluatePython()" id="submit-button" type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Submit
+              <!-- LOADING SPINNER -->
+              <!-- <svg class="animate-spin h-5 w-5 ml-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg> -->
             </button>
           </div>
         </div>
@@ -41,7 +44,24 @@
       <div class="px-4 py-5 h-56 sm:p-6 text-lg" id="code-editor">
 
       </div>
-    </div>
+      <!-- This example requires Tailwind CSS v2.0+ -->
+   <div class="relative m-3">
+     <div class="absolute inset-0 flex items-center" aria-hidden="true">
+       <div class="w-full border-t border-gray-300"></div>
+     </div>
+     <div class="relative flex justify-center">
+       <span class="px-3 bg-white text-lg font-medium text-gray-900">
+         Output
+       </span>
+     </div>
+   </div>
+
+   <div class="m-3">
+     <code id="output">
+     </code>
+   </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
