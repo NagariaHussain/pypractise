@@ -8,10 +8,10 @@
     <title>Alpine + Tailwind = lit</title>
   </head>
   <body class="bg-blue-400">
-    <div x-data="{message: ''}" class="m-24 bg-white overflow-hidden shadow sm:rounded-lg">
+    <div x-data="{bookmarked: false}" class="m-24 bg-white overflow-hidden shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <h2 class="text-lg uppercase font-normal mb-2 text-gray-400 space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 inline-block cursor-pointer hover:text-blue-600 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" @click="bookmarked = !bookmarked"  :class="{ 'text-blue-600': bookmarked, 'h-7 w-7 inline-block cursor-pointer hover:text-blue-600 transition-colors': true }" viewBox="0 0 20 20" fill="currentColor">
               <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
             </svg>
             <span>Question</span>
