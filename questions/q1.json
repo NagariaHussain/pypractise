@@ -1,5 +1,10 @@
 {
-    "id": 1,
-    "prompt_text": "# Hello World\n\n* 1\n* 2\n\nThis should be *italic* and this should be **bold**",
-    "starter_code": "print([x**3 for x in range(5)])"
+    "id": 2, 
+    "starter_code": "# your code here",
+    "prompt_text": "# The Magical Adder\n\nIn this problem, you have to write a python program which prompts the\nuser to enter three integers separated by ','. The user input is of\nthe form: 'a,b,c', where a, b and c are **integers**.\n\nYour program should calculate and display the result of the calculation:\n**a + b - c**\n\nExamples:\n* $ please enter three numbers: 10,11,10\n\n11\n\n* $ please enter three numbers: 7,5,-1\n\n13\n",
+    "tests": {
+        "type": "io",
+        "inputs": ["9,9,9", "10,11,10"],
+        "outputs": ["9", "11"]
+    }
 }
