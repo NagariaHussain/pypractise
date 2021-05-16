@@ -9,7 +9,7 @@ Uses `pyodide` to evaluate python code in the browser.
 
 ## Some notes on `pyodide`
 
-1. Capturing `stdout`:
+### Capturing `stdout`:
 
 ```py
 pyodide.runPython(`
